@@ -1,0 +1,6 @@
+requests
+google-cloud-bigquery
+cached_property
+pandas
+pandas-gbq
+google-cloud-storage
