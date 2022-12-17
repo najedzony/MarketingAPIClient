@@ -11,6 +11,11 @@ class CampaignsManager(ApiManager):
         url = "/campaign/add"
         return self.send_post(url, params)
 
+    def get_campaign(self, params):
+        self.refresh()
+        url = "/campaign/get"
+        return self.send_get(url, params)
+
     def list_campaigns(self, params):
         self.refresh()
         url = "/campaign/list"
