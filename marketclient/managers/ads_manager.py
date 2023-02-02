@@ -1,37 +1,37 @@
-from src.data_fetch.api_manager import ApiManager
+from marketclient.data_fetch.api_manager import ApiManager
 
 
-class CampaignsManager(ApiManager):
+class AdsManager(ApiManager):
     def __init__(self, username, password, **kwargs):
         super().__init__(**kwargs)
         self.get_tokens(username, password)
 
-    def add_campaign(self, params):
+    def add_ad(self, params):
         self.refresh()
-        url = "/campaign/add"
+        url = "/ads/add"
         return self.send_post(url, params)
 
-    def get_campaign(self, params):
+    def get_ad(self, params):
         self.refresh()
-        url = "/campaign/get"
+        url = "/ads/get"
         return self.send_get(url, params)
 
-    def list_campaigns(self, params):
+    def list_ads(self, params):
         self.refresh()
-        url = "/campaign/list"
+        url = "/ads/list"
         return self.send_get(url, params)
 
-    def update_campaign(self, params):
+    def update_ad(self, params):
         self.refresh()
-        url = "/campaign/update"
+        url = "/ads/update"
         return self.send_post(url, params)
 
-    def delete_campaign(self, params):
+    def delete_ad(self, params):
         self.refresh()
-        url = "/campaign/delete"
+        url = "/ads/delete"
         return self.send_post(url, params)
 
-    def undelete_campaign(self, params):
+    def undelete_ad(self, params):
         self.refresh()
-        url = "/campaign/undelete"
+        url = "/ads/undelete"
         return self.send_post(url, params)

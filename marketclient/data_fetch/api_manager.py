@@ -28,13 +28,13 @@ class ApiManager:
         self.access_token = response_json["access_token"]
 
     def send_get(self, url_suffix, params):
-        url = f"{self.base_url}/{url_suffix}"
+        url = f"{self.base_url}{url_suffix}"
         headers = {"Authorization": f"Bearer {self.access_token}"}
         response = requests.get(url, headers=headers, json=params)
         return self.get_response_json(response)
 
     def send_post(self, url_suffix, params):
-        url = f"{self.base_url}/{url_suffix}"
+        url = f"{self.base_url}{url_suffix}"
         headers = {"Authorization": f"Bearer {self.access_token}"}
         response = requests.post(url, headers=headers, json=params)
         return self.get_response_json(response)
@@ -49,12 +49,3 @@ class ApiManager:
             return response.json()
         except Exception:
             raise
-
-
-# apimanager = ApiManager(base_url="http://127.0.0.1:5000/api/v1")
-# username = "username6"
-# password = "password12345"
-# apimanager.get_tokens(username, password)
-# print(apimanager.access_token)
-# apimanager.refresh()
-# print(apimanager.access_token)

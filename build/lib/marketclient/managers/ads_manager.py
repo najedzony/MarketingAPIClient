@@ -1,4 +1,4 @@
-from src.data_fetch.api_manager import ApiManager
+from marketclient.data_fetch.api_manager import ApiManager
 
 
 class AdsManager(ApiManager):

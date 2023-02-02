@@ -4,7 +4,7 @@ from google.cloud import storage
 
 
 class GoogleCloudStorageClient:
-    def __init__(self, credentials_key_path):
+    def __init__(self, credentials_key_path, project):
         self.credentials = service_account.Credentials.from_service_account_file(
             credentials_key_path,
             scopes=[
@@ -14,11 +14,12 @@ class GoogleCloudStorageClient:
                 "https://www.googleapis.com/auth/devstorage.read_write",
             ],
         )
+        self.project = project
 
     @cached_property
     def _client(self):
         return storage.Client(
-            credentials=self.credentials, project=self.credentials.project
+            credentials=self.credentials, project=self.project
         )
 
     def create_bucket(self, bucket_name):

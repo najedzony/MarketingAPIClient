@@ -1,4 +1,4 @@
-from src.data_fetch.api_manager import ApiManager
+from marketclient.data_fetch.api_manager import ApiManager
 
 
 class ReportsFetcher(ApiManager):
@@ -21,7 +21,7 @@ class ReportsFetcher(ApiManager):
         params = {
             "date_from": date_from,
             "date_to": date_to,
-            "group_by": list(group_by),
+            "group_by": group_by,
         }
         return self.send_get(url_suffix, params)
 
@@ -31,7 +31,7 @@ class ReportsFetcher(ApiManager):
         params = {
             "date_from": date_from,
             "date_to": date_to,
-            "group_by": list(group_by),
+            "group_by": group_by,
         }
         return self.send_get(url_suffix, params)
 
@@ -41,7 +41,7 @@ class ReportsFetcher(ApiManager):
         params = {
             "date_from": date_from,
             "date_to": date_to,
-            "group_by": list(group_by),
+            "group_by": group_by,
         }
         return self.send_get(url_suffix, params)
 
